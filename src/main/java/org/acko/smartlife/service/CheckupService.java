@@ -13,4 +13,6 @@ public interface CheckupService {
     List<CheckupResponse> getDetails(Long userId);
 
     void update(UpdateCheckupDetails request);
+
+    CheckupResponse getLastCheckup(Long userId);
 }

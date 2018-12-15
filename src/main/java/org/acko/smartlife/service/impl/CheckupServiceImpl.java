@@ -15,10 +15,7 @@ import org.acko.smartlife.service.mapper.CheckupMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * @author prabodh.hend
@@ -63,5 +60,18 @@ public class CheckupServiceImpl implements CheckupService {
         checkup = checkupRepository.save(checkup);
         checkupDetails = checkupDetailsRepository.save(checkupDetails);
         rewardService.updateRewards(checkup, checkupDetails);
+    }
+
+    @Override
+    public CheckupResponse getLastCheckup(Long userId) {
+        log.info("Fetching latest checkup detail for userId: {}", userId);
+        Checkup checkup = checkupRepository.findLatest(userId);
+        Map<String, List<CheckupDetails>> checkupDetailsMap = new HashMap<>();
+        List<CheckupDetails> details = checkupDetailsRepository.findByCheckupId(checkup.getCheckupId());
+        checkupDetailsMap.put(checkup.getCheckupId(), details);
+        List<Checkup> checkupList = new ArrayList<>();
+        checkupList.add(checkup);
+        List<CheckupResponse> responseList = CheckupMapper.map(checkupList, checkupDetailsMap);
+        return responseList.size() > 0 ? responseList.get(0) : null;
     }
 }

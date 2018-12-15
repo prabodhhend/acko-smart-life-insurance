@@ -7,6 +7,8 @@ CREATE TABLE `checkup` (
   `user_id` int(11) NOT NULL,
   `checkup_date` timestamp NULL DEFAULT NULL,
   `checkup_id` varchar(128) NOT NULL,
+  `doctor_name` varchar(128) ,
+  `checkup_type` varchar(128) ,
   `bill_generated` DECIMAL( 10, 2 ),
   `amount_paid` DECIMAL( 10, 2 ),
   `amount_due` DECIMAL( 10, 2 ),

@@ -26,9 +26,7 @@ public class CheckupMapper {
                     .map(checkup -> {
                         CheckupResponse checkupResponse = new CheckupResponse();
                         checkupResponse.setUserId(checkup.getUserId());
-
                         List<CheckupDetails> checkupDetailsList = checkupDetailsMap.get(checkup.getCheckupId());
-
                         List<CheckupDetailResonse> details = checkupDetailsList.stream()
                                 .map(checkupDetails -> {
                                     CheckupDetailResonse detailResonse = new CheckupDetailResonse();
@@ -39,6 +37,9 @@ public class CheckupMapper {
                                     return detailResonse;
                                 }).collect(Collectors.toList());
 
+                        checkupResponse.setDoctorName(checkup.getDoctorName());
+                        checkupResponse.setCheckupDate(checkup.getCreatedAt());
+                        checkupResponse.setCheckupType(checkup.getCheckupType());
                         checkupResponse.setDetails(details);
                         return checkupResponse;
 
@@ -77,10 +78,12 @@ public class CheckupMapper {
 
     public static Checkup createCheckup(String checkupId, UpdateCheckupDetails request) {
         return Checkup.builder()
-                .amountDue(request.getAmountDue())
+                .amountDue(request.getBillGenerated() - request.getAmountPaid())
                 .amountPaid(request.getAmountPaid())
                 .billGenerated(request.getBillGenerated())
                 .checkupDate(new Date())
+                .doctorName(request.getDoctorName())
+                .checkupType(request.getCheckupType())
                 .checkupId(checkupId)
                 .userId(request.getUserId())
                 .build();

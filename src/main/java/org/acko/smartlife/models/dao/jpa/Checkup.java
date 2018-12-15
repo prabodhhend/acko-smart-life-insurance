@@ -34,6 +34,12 @@ public class Checkup extends BaseEntity {
     @Column(name = "checkup_id")
     private String checkupId;
 
+    @Column(name = "doctor_name")
+    private String doctorName;
+
+    @Column(name = "checkup_type")
+    private String checkupType;
+
     @Column(name = "bill_generated")
     private Double billGenerated;
 
