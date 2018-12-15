@@ -9,6 +9,7 @@ import org.acko.smartlife.models.dto.CheckupResponse;
 import org.acko.smartlife.models.dto.ParameterDetails;
 import org.acko.smartlife.models.dto.UpdateCheckupDetails;
 import org.acko.smartlife.service.CheckupService;
+import org.acko.smartlife.service.integration.RewardService;
 import org.acko.smartlife.service.integration.UserService;
 import org.acko.smartlife.service.mapper.CheckupMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,9 @@ public class CheckupServiceImpl implements CheckupService {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private RewardService rewardService;
 
     @Autowired
     private CheckupRepository checkupRepository;
@@ -56,8 +60,8 @@ public class CheckupServiceImpl implements CheckupService {
         String checkupId = UUID.randomUUID().toString();
         List<CheckupDetails> checkupDetails = CheckupMapper.createDetails(checkupId, parameterDetails);
         Checkup checkup = CheckupMapper.createCheckup(checkupId, request);
-        checkupRepository.save(checkup);
-        checkupDetailsRepository.save(checkupDetails);
-
+        checkup = checkupRepository.save(checkup);
+        checkupDetails = checkupDetailsRepository.save(checkupDetails);
+        rewardService.updateRewards(checkup, checkupDetails);
     }
 }

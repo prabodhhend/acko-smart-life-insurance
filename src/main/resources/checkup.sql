@@ -45,3 +45,15 @@ total_calories int,
   updated_by varchar(128)
 )
 
+create table user_activity(
+`id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+ `user_id` int(11) NOT NULL,
+ `total_calories` DECIMAL( 10, 2 ),
+  `is_deleted` tinyint(1) NOT NULL DEFAULT '0',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_by` varchar(128) CHARACTER SET latin1 DEFAULT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_by` varchar(128) CHARACTER SET latin1 DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+

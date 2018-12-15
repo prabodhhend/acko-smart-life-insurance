@@ -39,10 +39,6 @@ public class CheckupController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    //getLast checkup
-
-    //create checkup details
-
-    //add checkup parameter
+    //getLast checkup history
 
 }
