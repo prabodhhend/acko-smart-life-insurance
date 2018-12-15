@@ -23,12 +23,12 @@ public class UserActivityServiceImpl {
         userActivityRepository.save(userActivity);
     }
 
-    public List<UserActivity> getForPastDays(Integer pastDays){
+    public List<UserActivity> getForPastDays(Long userId,Integer pastDays){
 
         Calendar cal = new GregorianCalendar();
         cal.add(Calendar.DAY_OF_MONTH, -pastDays);
         Date sevenDaysAgo = cal.getTime();
-        return userActivityRepository.findByCreatedAtBetween(sevenDaysAgo,new Date());
+        return userActivityRepository.findByUserIdAndCreatedAtBetween(userId,sevenDaysAgo,new Date());
     }
 
 

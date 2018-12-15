@@ -22,7 +22,7 @@ import javax.persistence.Table;
 public class UserActivity extends BaseEntity {
 
     @Column(name = "user_id")
-    private String userId;
+    private Long userId;
 
     @Column(name = "total_calories")
     private Integer totalCalories;

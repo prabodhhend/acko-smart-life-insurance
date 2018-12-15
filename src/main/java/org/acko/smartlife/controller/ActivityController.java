@@ -34,10 +34,10 @@ public class ActivityController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @GetMapping("/user-activity/pastDays/{pastDays}")
-    public ResponseEntity<List<UserActivity>> getUserActivity(@PathVariable("pastDays") Integer pastDays) {
-        log.info("getting  user activity for pastDays {}",pastDays );
-        return new ResponseEntity<List<UserActivity>>(userActivityService.getForPastDays(pastDays),HttpStatus.OK);
+    @GetMapping("/user-activity/user/{userId}/pastDays/{pastDays}")
+    public ResponseEntity<List<UserActivity>> getUserActivity(@PathVariable("userId") Long userId,@PathVariable("pastDays") Integer pastDays) {
+        log.info("getting  user activity for userId {} pastDays {}",userId,pastDays );
+        return new ResponseEntity<List<UserActivity>>(userActivityService.getForPastDays(userId,pastDays),HttpStatus.OK);
     }
 
 }

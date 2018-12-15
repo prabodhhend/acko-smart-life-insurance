@@ -10,5 +10,5 @@ public interface UserActivityRepository extends JpaRepository<UserActivity,Integ
 
 
 
-    List<UserActivity> findByCreatedAtBetween(Date start, Date end);
+    List<UserActivity> findByUserIdAndCreatedAtBetween(Long userId,Date start, Date end);
 }
