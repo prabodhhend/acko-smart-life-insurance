@@ -1,6 +1,7 @@
 package org.acko.smartlife.service;
 
 import org.acko.smartlife.models.dto.CheckupResponse;
+import org.acko.smartlife.models.dto.UpdateCheckupDetails;
 
 import java.util.List;
 
@@ -10,4 +11,6 @@ import java.util.List;
 public interface CheckupService {
 
     List<CheckupResponse> getDetails(Long userId);
+
+    void update(UpdateCheckupDetails request);
 }

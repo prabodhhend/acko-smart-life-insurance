@@ -46,8 +46,4 @@ public class Checkup extends BaseEntity {
     @Column(name = "is_rewarded")
     private boolean isRewarded;
 
-//    @OneToMany(mappedBy = "checkup", cascade = CascadeType.ALL, orphanRemoval = true)
-//    @JoinColumn(name = "checkup_id")
-//    private List<CheckupDetails> checkupDetailsList = new ArrayList<>();
-
 }

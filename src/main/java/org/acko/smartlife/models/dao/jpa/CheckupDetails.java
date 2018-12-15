@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.acko.smartlife.constants.DataType;
+import org.acko.smartlife.constants.ParameterType;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
@@ -31,7 +32,8 @@ public class CheckupDetails {
     private String checkupId;
 
     @Column(name = "parameter")
-    private String parameter;
+    @Enumerated(EnumType.STRING)
+    private ParameterType parameter;
 
     @Column(name = "value")
     private String value;
@@ -42,6 +44,6 @@ public class CheckupDetails {
 
     @JsonIgnore
     @Column(name = "is_deleted")
-    private boolean deleted;
+    private boolean deleted = false;
 
 }
