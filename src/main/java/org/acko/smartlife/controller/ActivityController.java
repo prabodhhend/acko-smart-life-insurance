@@ -8,10 +8,9 @@ import org.acko.smartlife.service.impl.UserActivityServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author prabodh.hend
@@ -33,6 +32,12 @@ public class ActivityController {
         log.info("saving user activity", userActivityPojo);
         userActivityService.save(new UserActivity(userActivityPojo.getUserId(), userActivityPojo.getTotalCalories()));
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("/user-activity/pastDays/{pastDays}")
+    public ResponseEntity<List<UserActivity>> getUserActivity(@PathVariable("pastDays") Integer pastDays) {
+        log.info("getting  user activity for pastDays {}",pastDays );
+        return new ResponseEntity<List<UserActivity>>(userActivityService.getForPastDays(pastDays),HttpStatus.OK);
     }
 
 }
