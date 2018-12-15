@@ -33,3 +33,15 @@ CREATE TABLE `checkup_details` (
   PRIMARY KEY (`id`),
   KEY `idx_checkup_id` (`checkup_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+create table user_activity(
+id long auto_increment,
+user_id long,
+total_calories int,
+ is_deleted tinyint(1) ,
+  created_at timestamp ,
+  created_by varchar(128)  ,
+  updated_at timestamp ,
+  updated_by varchar(128)
+)
+
