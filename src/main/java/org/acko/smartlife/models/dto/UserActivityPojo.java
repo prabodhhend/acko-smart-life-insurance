@@ -1,7 +1,4 @@
-package org.acko.smartlife.controller;
-
-import javax.persistence.Column;
-import java.util.Date;
+package org.acko.smartlife.models.dto;
 
 public class UserActivityPojo {
 
@@ -17,7 +14,7 @@ public class UserActivityPojo {
     }
 
     public Integer getTotalCalories() {
-            return totalCalories;
+        return totalCalories;
     }
 
     public void setTotalCalories(Integer totalCalories) {

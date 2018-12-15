@@ -33,7 +33,7 @@ public class CheckupServiceImpl implements CheckupService {
     private CheckupDetailsRepository checkupDetailsRepository;
 
     @Override
-    public List<CheckupResponse> getDetails(String userId) {
+    public List<CheckupResponse> getDetails(Long userId) {
         log.info("Fetching checkup details");
         userService.validate(userId);
         List<Checkup> checkupList = checkupRepository.findByUserId(userId);

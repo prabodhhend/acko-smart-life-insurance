@@ -11,6 +11,6 @@ import java.util.List;
 @Data
 public class CheckupResponse {
 
-    private String userId;
+    private Long userId;
     private List<CheckupDetailResonse> details = new ArrayList<>();
 }

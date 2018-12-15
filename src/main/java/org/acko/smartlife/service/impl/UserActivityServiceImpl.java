@@ -14,9 +14,7 @@ public class UserActivityServiceImpl {
     UserActivityRepository userActivityRepository;
 
     public void save(UserActivity userActivity){
-
         userActivityRepository.save(userActivity);
-
     }
 
 

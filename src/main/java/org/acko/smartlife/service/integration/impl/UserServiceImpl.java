@@ -13,9 +13,9 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
 
     @Override
-    public User validate(String userId) {
+    public User validate(Long userId) {
         User user = new User();
-        user.setUsername(userId);
+        user.setId(userId);
         return user;
     }
 

@@ -25,7 +25,7 @@ import java.util.List;
 public class Checkup extends BaseEntity {
 
     @Column(name = "user_id")
-    private String userId;
+    private Long userId;
 
     @Column(name = "checkup_date")
     @Temporal(TemporalType.TIMESTAMP)

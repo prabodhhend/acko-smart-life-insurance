@@ -7,5 +7,5 @@ import org.acko.smartlife.models.dao.integration.User;
  */
 public interface UserService {
 
-    public User validate(String userId);
+    public User validate(Long userId);
 }

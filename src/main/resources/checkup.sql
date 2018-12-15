@@ -4,7 +4,7 @@ use checkup;
 
 CREATE TABLE `checkup` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` varchar(128) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `checkup_date` timestamp NULL DEFAULT NULL,
   `checkup_id` varchar(128) NOT NULL,
   `bill_generated` DECIMAL( 10, 2 ),

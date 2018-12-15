@@ -12,5 +12,5 @@ import java.util.List;
 @Repository
 public interface CheckupRepository extends JpaRepository<Checkup, String> {
 
-    List<Checkup> findByUserId(String userId);
+    List<Checkup> findByUserId(Long userId);
 }

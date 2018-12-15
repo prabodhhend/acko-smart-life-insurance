@@ -26,8 +26,8 @@ public class CheckupController {
     @Autowired
     private CheckupService checkupService;
 
-    @GetMapping("/checkup-details/{userId}/")
-    public ResponseEntity<List<CheckupResponse>> getCheckupDetails(@PathVariable("userId") String userId) {
+    @GetMapping("/checkup-details/{userId}")
+    public ResponseEntity<List<CheckupResponse>> getCheckupDetails(@PathVariable("userId") Long userId) {
         log.info("Fetching checkup details for user:{}", userId);
         List<CheckupResponse> response = checkupService.getDetails(userId);
         return new ResponseEntity<>(response, HttpStatus.OK);

@@ -9,5 +9,5 @@ import java.util.List;
  */
 public interface CheckupService {
 
-    List<CheckupResponse> getDetails(String userId);
+    List<CheckupResponse> getDetails(Long userId);
 }
