@@ -7,9 +7,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 /**
  * @author prabodh.hend
@@ -41,13 +39,13 @@ public class Checkup extends BaseEntity {
     private String checkupType;
 
     @Column(name = "bill_generated")
-    private Double billGenerated;
+    private Double billGenerated = 0D;
 
     @Column(name = "amount_paid")
-    private Double amountPaid;
+    private Double amountPaid = 0D;
 
     @Column(name = "amount_due")
-    private Double amountDue;
+    private Double amountDue = 0D;
 
     @Column(name = "is_rewarded")
     private boolean isRewarded;

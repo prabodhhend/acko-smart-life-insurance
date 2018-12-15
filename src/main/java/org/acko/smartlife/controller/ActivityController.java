@@ -22,10 +22,8 @@ import java.util.List;
 @Api(value = "activity", description = "user activity logging calories", tags = {"user activity logging calories"})
 public class ActivityController {
 
-
     @Autowired
     UserActivityServiceImpl userActivityService;
-
 
     @PostMapping("/user-activity/")
     public ResponseEntity save(@RequestBody UserActivityPojo userActivityPojo) {

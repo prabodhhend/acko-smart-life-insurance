@@ -25,7 +25,7 @@ public class UserActivity extends BaseEntity {
     private Long userId;
 
     @Column(name = "total_calories")
-    private Integer totalCalories;
+    private Double totalCalories = 0D;
 
 }
 

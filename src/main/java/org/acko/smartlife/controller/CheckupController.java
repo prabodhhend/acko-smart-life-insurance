@@ -39,7 +39,7 @@ public class CheckupController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @GetMapping("/checkup-details/{userId}")
+    @GetMapping("/last-checkup/{userId}")
     public ResponseEntity<CheckupResponse> getLastCheckup(@PathVariable("userId") Long userId) {
         log.info("Fetching checkup details for user:{}", userId);
         CheckupResponse response = checkupService.getLastCheckup(userId);
