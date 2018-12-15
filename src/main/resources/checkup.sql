@@ -19,3 +19,17 @@ CREATE TABLE `checkup` (
   KEY `idx_user_id` (`user_id`),
   KEY `idx_checkup_date` (`checkup_date`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+create table user_activity(
+id long auto_increment,
+user_id long,
+total_calories int,
+ is_deleted tinyint(1) ,
+  created_at timestamp ,
+  created_by varchar(128)  ,
+  updated_at timestamp ,
+  updated_by varchar(128)
+)
+
+
